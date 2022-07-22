@@ -7,3 +7,5 @@ class Cart(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     cart = models.JSONField(serialize=True, null=True, blank=True)
     
+    # def __str__(self):
+    #     return self.user
