@@ -24,9 +24,9 @@ def add(request, id, token):
 
     if request.method == "POST":
         user_id =id
-        transaction_id = request.POST['transaction_id']
-        product_names = request.POST['transaction_id']
-        total_amount = request.POST['transaction_id']
+        transaction_id = request.POST['transactionId']
+        product_names = request.POST['productNames']
+        total_amount = request.POST['totalAmount']
         total_products = len(product_names.split(","))
         print(total_products)
 

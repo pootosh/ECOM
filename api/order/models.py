@@ -5,7 +5,7 @@ class Order(models.Model):
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
-    product_names = models.CharField(max_length=500, blank=True)
+    cart = models.JSONField(null=True, blank=True)
     transaction_id = models.CharField(max_length=150)
     total_amount = models.CharField(max_length=10, default=0)
     total_products = models.IntegerField()

@@ -10,6 +10,7 @@ djangorestframework = "*"
 pillow = "*"
 braintree = "*"
 python-dotenv = "*"
+pipfile = "*"
 
 [dev-packages]
 

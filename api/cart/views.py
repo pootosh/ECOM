@@ -13,6 +13,8 @@ def UpdateCart(request,  id, token):
         cart_of_user = Cart.objects.get(user = user)
         print(user)
         print(cart_of_user)
+        cart_of_user.cart = "{'First Name':'Aditya', 'Last Name':'Singh'}"
+        cart_of_user.save()
         return JsonResponse({'status': 'success'})
     except user_model.DoesNotExist:
         return JsonResponse({'error': 'user does not exist'})

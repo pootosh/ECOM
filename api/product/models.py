@@ -1,7 +1,4 @@
-from contextlib import nullcontext
-from pydoc import describe
-from re import U
-from unicodedata import category
+import os
 from django.db import models
 from api.category.models import Category
 
@@ -18,3 +15,18 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self):
+        try:
+            product = Product.objects.get(id=self.id)
+            if product.image.path!=self.image.path:
+                os.remove(product.image.path)
+            return super().save()
+        except:
+            super().save()
+
+    def delete(self, using = None, keep_parents = False) :
+        os.remove(self.image.path)
+        return super().delete(using, keep_parents)
+
+       
